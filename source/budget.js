@@ -1,5 +1,7 @@
+//controlelr layer
+//calculated budget determined by income and expesnes
 function calculateBudget(income, expenses) {
-    //core calculation probably in later steps
+    //core calculation (income-expenses)
     return income - expenses;
 }
 
