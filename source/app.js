@@ -1,9 +1,20 @@
 //interface
 //data layer and business logic modules
-const { getData, setData } = require('./data');
-const { calculateBudget } = require('./budget');
+const { setData, addIncome, addExpense } = require('./data');
+const { getBudgetSummary } = require('./budget');
 
-// Example
-setData(6000, 3000);
-const data = getData();
-console.log(`Budget: $${calculateBudget(data.income, data.expenses)}`);
+//set initial income and expenses values
+setData(5000, 2000);
+
+//Add income and expenses
+addIncome(500);
+addExpense(100);
+
+//Budget summary
+const summary = getBudgetSummary();
+
+//budget summary displayed
+console.log("Budget Summary:");
+console.log(`Income: $${summary.income}`);
+console.log(`Expenses: $${summary.expenses}`);
+console.log(`Budget: $${summary.budget}`);
