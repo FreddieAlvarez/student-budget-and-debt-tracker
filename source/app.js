@@ -1,7 +1,12 @@
 //interface
 //data layer and business logic modules
+const express = require('express');
 const { setData, addIncome, addExpense } = require('./data');
 const { getBudgetSummary } = require('./budget');
+
+//express application and port
+const app = express();
+const PORT = process.env.PORT || 3000;
 
 //set initial income and expenses values
 setData(5000, 2000);
@@ -10,11 +15,18 @@ setData(5000, 2000);
 addIncome(500);
 addExpense(100);
 
-//Budget summary
-const summary = getBudgetSummary();
+//Endpoint to get budget summary
+app.get('/', (req, res) => {
+  const summary = getBudgetSummary();
+  res.send(`
+    <h1>Budget Summary</h1>
+    <p>Income: $${summary.income}</p>
+    <p>Expenses: $${summary.expenses}</p>
+    <p>Budget: $${summary.budget}</p>
+  `);
+});
 
-//budget summary displayed
-console.log("Budget Summary:");
-console.log(`Income: $${summary.income}`);
-console.log(`Expenses: $${summary.expenses}`);
-console.log(`Budget: $${summary.budget}`);
+//Start server
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
