@@ -1,9 +1,10 @@
-#Node modules
+# Node modules
+node_modules/
 source/node_modules/
 
-#Logs
+# Logs
 *.log
 
-#OS files
+# OS files
 .DS_Store
 Thumbs.db

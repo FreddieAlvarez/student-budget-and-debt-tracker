@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/FreddieAlvarez/student-budget-and-debt-tracker/issues"
   },
-  "homepage": "https://github.com/FreddieAlvarez/student-budget-and-debt-tracker#readme"
+  "homepage": "https://github.com/FreddieAlvarez/student-budget-and-debt-tracker#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
 }
