@@ -24,6 +24,11 @@ router.post('/', (req, res) => {
     return res.status(400).json({ error: 'Income and expenses are required' });
   }
 
+  // Validate input types
+  if (isNaN(Number(income)) || isNaN(Number(expenses))) {
+    return res.status(400).json({ error: 'Income and expenses must be numbers' });
+  }
+
   try {
     // Update data
     setData(Number(income), Number(expenses));
