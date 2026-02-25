@@ -8,6 +8,9 @@ const { getBudgetSummary } = require('./budget');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Enable JSON parsing
+app.use(express.json());
+
 //set initial income and expenses values
 setData(5000, 2000);
 
@@ -25,6 +28,12 @@ app.get('/', (req, res) => {
     <p>Budget: $${summary.budget}</p>
   `);
 });
+
+// Import budget API routes
+const budgetRoutes = require('./routes/budget');
+
+// Use the budget routes at /budget
+app.use('/budget', budgetRoutes);
 
 //Start server
 app.listen(PORT, () => {
