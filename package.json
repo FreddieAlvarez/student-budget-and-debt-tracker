@@ -2,7 +2,7 @@
   "name": "student-budget-and-debt-tracker",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "source/app.js",
   "directories": {
     "test": "tests"
   },
